@@ -2,12 +2,12 @@
 :root {
     --maincolor:rgb(61,61,61);
     --accent-color:white;
-}
+      }
 body{
     max-width:980px;
     margin:0;
     padding:0;
-        }
+    }
 header {
     display:flex;
     flex-direction:column;
@@ -27,7 +27,7 @@ header #begin {
     order:1;
 }
 header #description {
-   font-family:'Anton',sans serif;
+   font-family:'Anton',"sans serif";
    text-align:center;
    color:var(--accent-color);
    background-color:var(--maincolor);
@@ -105,3 +105,16 @@ header #image img {
     img .floatright{
         float:right;
     }
+@media (min-width:980px) {
+    body {
+    margin-left:10%;
+    margin-right:10%
+    }
+}
+media (min-width:1200px) {
+    body {
+    margin-left:20%;
+    margin-right:20%
+    }
+}
+
