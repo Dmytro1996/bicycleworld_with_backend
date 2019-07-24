@@ -27,7 +27,7 @@ header #begin {
     order:1;
 }
 header #description {
-   font-family:'Anton',sans serif; 
+   font-family:'Anton',sans serif;
    text-align:center;
    color:var(--accent-color);
    background-color:var(--maincolor);
@@ -75,7 +75,7 @@ header #image img {
     header #description {
         grid-column:1;
         grid-row:1;
-        align-self:flex-end;   
+        align-self:flex-end;
     }
     header .menu {
     grid-column:2;
@@ -95,4 +95,13 @@ header #image img {
     }
     .pageending {
         background-color:black;
+    }
+    img .floatleft{
+        float:left;
+    }
+    img .floatcenter{
+        float:center;
+    }
+    img .floatright{
+        float:right;
     }
