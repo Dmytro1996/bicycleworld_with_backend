@@ -61,6 +61,22 @@ header #image {
 header #image img {
     width:100%;
 }
+#contactinfo {
+    display:flex;
+    flex-direction:column;
+    background-position:center;
+    justify-content:center;
+}
+#contactinfo p {
+
+}
+#networks {
+
+}
+#networks a img {
+    width:200px;
+    height:200px;
+   }
 @media (min-width:550px) {
     header {
     display:grid;
@@ -86,6 +102,10 @@ header #image img {
      grid-column:1/3;
      grid-row:2;
     }
+    #contactinfo img {
+        flex-direction:row;
+        justify-content:space-around;
+    }
     }
     h1,h2, .pageending {
         text-align:center;
@@ -107,14 +127,9 @@ header #image img {
     }
 @media (min-width:980px) {
     body {
-    margin-left:10%;
-    margin-right:10%
+    margin-left:auto;
+    margin-right:auto;
     }
 }
-media (min-width:1200px) {
-    body {
-    margin-left:20%;
-    margin-right:20%
-    }
-}
+
 
