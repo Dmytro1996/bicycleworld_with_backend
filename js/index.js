@@ -1,15 +1,31 @@
-document.querySelector('.login-form input[type=submit]').addEventListener('click',login);
-function login(e) {
-  e.preventDefault();
-  fetch('login', {
-      method:'POST',
-      headers: {
-          'Content-Type':'application/json',
-      },
-      body:JSON.stringify({
-          name:document.querySelector('.login-form input[name=subscriberName]').value,
-          email:document.querySelector('.login-form input[name=subscriberEmail]').value
-          })
-          })
-      .then(_=> document.querySelector('.login-form').reset());
+
+document.querySelector('.addTextToFirstArticle').addEventListener('click',increaseUsefulness);
+function increaseUsefulness() {
+    fetch('addData.html')
+    .then(response=>response.text())
+    .then(html=>document.querySelector('.firstArticle').innerHTML=html);
+    document.querySelector('.addTextToFirstArticle').value='Показати менше';
+    document.querySelector('.addTextToFirstArticle').removeEventListener('click',increaseUsefulness);
+    document.querySelector('.addTextToFirstArticle').addEventListener('click',decreaseUsefulness);
+}
+function decreaseUsefulness() {
+   document.querySelector('.firstArticle').innerHTML='';
+   document.querySelector('.addTextToFirstArticle').value='Показати більше';
+   document.querySelector('.addTextToFirstArticle').removeEventListener('click',decreaseUsefulness);
+   document.querySelector('.addTextToFirstArticle').addEventListener('click',increaseUsefulness);
+}
+document.querySelector('.addTextToSecondArticle').addEventListener('click',increaseChoice);
+function increaseChoice() {
+    fetch('addDataToChoice.html')
+    .then(response=>response.text())
+    .then(html=>document.querySelector('.secondArticle').innerHTML=html);
+    document.querySelector('.addTextToSecondArticle').value='Показати менше';
+    document.querySelector('.addTextToSecondArticle').removeEventListener('click',increaseChoice);
+    document.querySelector('.addTextToSecondArticle').addEventListener('click',decreaseChoise);
+}
+function decreaseChoice() {
+   document.querySelector('.secondArticle').innerHTML='';
+   document.querySelector('.addTextToSecondArticle').value='Показати більше';
+   document.querySelector('.addTextToSecondArticle').removeEventListener('click',decreaseChoice);
+   document.querySelector('.addTextToSecondArticle').addEventListener('click',increaseChoice);
 }
