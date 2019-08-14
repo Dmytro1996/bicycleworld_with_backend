@@ -21,7 +21,7 @@ function increaseChoice() {
     .then(html=>document.querySelector('.secondArticle').innerHTML=html);
     document.querySelector('.addTextToSecondArticle').value='Показати менше';
     document.querySelector('.addTextToSecondArticle').removeEventListener('click',increaseChoice);
-    document.querySelector('.addTextToSecondArticle').addEventListener('click',decreaseChoise);
+    document.querySelector('.addTextToSecondArticle').addEventListener('click',decreaseChoice);
 }
 function decreaseChoice() {
    document.querySelector('.secondArticle').innerHTML='';
