@@ -29,3 +29,4 @@ function decreaseChoice() {
    document.querySelector('.addTextToSecondArticle').removeEventListener('click',decreaseChoice);
    document.querySelector('.addTextToSecondArticle').addEventListener('click',increaseChoice);
 }
+
