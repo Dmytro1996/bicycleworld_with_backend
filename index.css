@@ -71,6 +71,9 @@ header #image img {
     width:200px;
     height:200px;
    }
+   #contactinfo #contactimages a img{
+       width:100%
+   }
 @media (min-width:550px) {
     header {
     display:grid;
@@ -98,7 +101,7 @@ header #image img {
     }
     #contactinfo {
         display:grid;
-        grid-template-rows:1fr 1fr;
+        grid-template-rows:50px 1fr;
     }
     #contactinfo #contactimages{
         grid-row:1;
@@ -139,10 +142,11 @@ header #image img {
     color:blue;
     float:right;
 }
-#footerLinks {
+#footerLinks a,.pageending nav a {
     color:var(--accent-color);
     text-decoration:none;
     text-transform:uppercase;
 }
+
 
 
