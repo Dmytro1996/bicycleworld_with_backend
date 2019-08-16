@@ -147,6 +147,15 @@ header #image img {
     text-decoration:none;
     text-transform:uppercase;
 }
+.addComment,.showComments,.addCommentToChoice,.showCommentsOfChoice{
+    height:30px;
+    color:white;
+    background-color:dodgerblue;
+    border-radius:10px;
+}
+#articleAboutUsefulness,#articleAboutChoice {
+    border-top-style:solid gray;
+}
 
 
 

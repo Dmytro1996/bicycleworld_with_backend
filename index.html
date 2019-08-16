@@ -27,7 +27,7 @@
   </header>
   <article>
     <h2 id=articles>Найновіші статті</h2>
-    <h2>Велосипед і здоров'я</h2>
+    <h2 id="articleAboutUsefulness">Велосипед і здоров'я</h2>
     <p>
         <img src="img/bicycle's_wheel.jpg" alt="bicycle's_wheel" class=floatleft  width=100% >
         Не знаєте, як включити їзду на велосипеді до здорового способу життя, наша стаття допоможе в цьому починанні.
@@ -36,25 +36,32 @@
     </p>
     <div class="firstArticle">
     </div>
-    <input type="button" class="addTextToUsefulnessArticle" name="seeMore" value="Показати більше">
+    <input type="button" class="addTextToUsefulnessArticle" name="seeMore" value="Показати більше"><br>
     <form>
-          <input type="text" id="commenterName">
-          <input type="text" id="commentText">
-          <input type="button" class="addComment" value="Додати коментар">
+          <input type="text" id="commenterName" placeholder="Your name"><br><br>
+          <input type="text" id="commentText" placeholder="Your comment"><br>
+          <input type="button" class="addComment" value="Додати коментар"><br>
           <input type="button" class="showComments" value="Показати коментарі">
       </form>
      <div id="comments">
     </div>
-    <h2>><strong>Вибір велосипеда</strong></h2>
+    <h2 id="articleAboutChoice"><strong>Вибір велосипеда</strong></h2>
     <img src=img/bicycletypes.jpg alt="bicycletypes" class=floatleft width="200" height="200">
     <p>
         Вибір велосипеда — це дуже відповідальне завдання, особливо якщо це перший велосипед, який ви купуєте. У попередній статті ми вже говорили на тему вибору магазину, тепер же настав час поговорити про безпосередньо виборі самого байка.
 Отже, перш ніж приступити до вивчення асортименту веломагазинів, вам необхідно визначити свій передбачуваний стиль катання. Дайте відповідь собі на питання: де ви збираєтеся кататися і скільки.
     </p>
-    <img src=img/mountainbike.jpg alt="mountainbike" class=floatcenter width="200" height="200">
     <div class="secondArticle">
     </div>
-    <input type="button" class="addTextToChoiceArticle" name="seeMore" value="Показати більше">
+    <input type="button" class="addTextToChoiceArticle" name="seeMore" value="Показати більше"><br>
+    <form>
+          <input type="text" id="commenterNameOfChoice" placeholder="Your name"><br><br>
+          <input type="text" id="commentTextOfChoice" placeholder="Your comment"><br>
+          <input type="button" class="addCommentToChoice" value="Додати коментар"><br>
+          <input type="button" class="showCommentsOfChoice" value="Показати коментарі">
+      </form>
+     <div id="commentsOfChoice">
+    </div>
 </article>
 <section id="contactinfo">
     <h1 id=contacts>Контакти</h1>

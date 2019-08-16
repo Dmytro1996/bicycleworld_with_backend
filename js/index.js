@@ -28,13 +28,15 @@ function decreaseChoice() {
    document.querySelector('.addTextToChoiceArticle').removeEventListener('click',decreaseChoice);
    document.querySelector('.addTextToChoiceArticle').addEventListener('click',increaseChoice);
 }
-const addCommentbtn=document.querySelector('.addComment');
-addCommentbtn.addEventListener('click',addComment);
+const addCommentBtn=document.querySelector('.addComment');
+addCommentBtn.addEventListener('click',addComment);
 const text=document.querySelector('#commentText');
 const name=document.querySelector('#commenterName');
 function addComment() {
     if(text.value!='' && name.value!='') {
-    localStorage[localStorage.length+1]=name.value+':'+text.value;
+    var num=localStorage.length+1;
+    var index='usefullness'+num;
+    localStorage[index]=name.value+':'+text.value;
     } else{
         alert('Заповніть всі поля');
     }
@@ -46,8 +48,11 @@ showCommentsBtn.addEventListener('click',show);
 function show() {
  for(i=1;i<=localStorage.length;i++) {
  const para=document.createElement('p');
- para.innerHTML=localStorage[i] ;
+ var index='usefullness'+i;
+ if(localStorage[index]!=undefined) {
+ para.innerHTML=localStorage[index] ;
  document.querySelector('#comments').appendChild(para);
+ }
  }
  showCommentsBtn.value='Сховати коментарі';
  showCommentsBtn.removeEventListener('click',show);
@@ -58,6 +63,43 @@ function hide() {
     showCommentsBtn.value='Показати коментарі';
     showCommentsBtn.removeEventListener('click',hide);
     showCommentsBtn.addEventListener('click',show);
+
+}
+const addCommentToChoiceBtn=document.querySelector('.addCommentToChoice');
+addCommentToChoiceBtn.addEventListener('click',addCommentToChoice);
+const textOfChoice=document.querySelector('#commentTextOfChoice');
+const nameOfChoice=document.querySelector('#commenterNameOfChoice');
+function addCommentToChoice() {
+    if(textOfChoice.value!='' && nameOfChoice.value!='') {
+    var num=localStorage.length+1;
+    var index='choice'+num;
+    localStorage[index]=nameOfChoice.value+':'+textOfChoice.value;
+    } else{
+        alert('Заповніть всі поля');
+    }
+    textOfChoice.value='';
+    nameOfChoice.value='';
+    }
+const showCommentsOfChoiceBtn=document.querySelector('.showCommentsOfChoice');
+showCommentsOfChoiceBtn.addEventListener('click',showOfChoice);
+function showOfChoice() {
+ for(i=1;i<=localStorage.length;i++) {
+ const para=document.createElement('p');
+ var index='choice'+i;
+ if(localStorage[index]!=undefined){
+ para.innerHTML=localStorage[index] ;
+ document.querySelector('#commentsOfChoice').appendChild(para);
+ }
+ }
+ showCommentsOfChoiceBtn.value='Сховати коментарі';
+ showCommentsOfChoiceBtn.removeEventListener('click',showOfChoice);
+ showCommentsOfChoiceBtn.addEventListener('click',hideFromChoice);
+}
+function hideFromChoice() {
+    document.querySelector('#commentsOfChoice').innerHTML='';
+    showCommentsOfChoiceBtn.value='Показати коментарі';
+    showCommentsOfChoiceBtn.removeEventListener('click',hide);
+    showCommentsOfChoiceBtn.addEventListener('click',show);
 
 }
 
