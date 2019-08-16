@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --maincolor:rgb(61,61,61);
     --accent-color:white;
@@ -60,6 +63,7 @@ header #image {
 }
 header #image img {
     width:100%;
+    height:100%
 }
 #contactinfo {
     display:flex;
@@ -153,9 +157,28 @@ header #image img {
     background-color:dodgerblue;
     border-radius:10px;
 }
-#articleAboutUsefulness,#articleAboutChoice {
-    border-top-style:solid gray;
+#articleAboutUsefulness,#articleAboutChoice,#contacts{
+    margin:0;
+    border-top:1px solid var(--maincolor);
 }
+footer .login-form p{
+    color:white;
+    margin-bottom:0;
+}
+#comments,#commentsOfChoice{
+    margin-left:20px;
+    margin-right:20px;
+    overflow: auto;
+}
+#bicycleWheel,#bicycletypes,#benefitsOfBicycle{
+    width:100%;
+    height:100%;
+}
+img {
+    width:200px;
+    height:200px;
+}
+
 
 
 

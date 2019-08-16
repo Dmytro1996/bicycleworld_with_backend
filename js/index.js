@@ -98,8 +98,8 @@ function showOfChoice() {
 function hideFromChoice() {
     document.querySelector('#commentsOfChoice').innerHTML='';
     showCommentsOfChoiceBtn.value='Показати коментарі';
-    showCommentsOfChoiceBtn.removeEventListener('click',hide);
-    showCommentsOfChoiceBtn.addEventListener('click',show);
+    showCommentsOfChoiceBtn.removeEventListener('click',hideFromChoice);
+    showCommentsOfChoiceBtn.addEventListener('click',showOfChoice);
 
 }
 

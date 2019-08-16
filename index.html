@@ -1,117 +1,120 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BicycleWorld</title>
-    <link rel="stylesheet" href="index.css">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-</head>
-<body>
-  <header>
-    <nav class="menu">
-        <a href="#begin">Головна</a>
-        <a href="#articles">Статті</a>
-        <a href="#contacts">Контакти</a>
-    </nav>
-        <h1 id=begin>BicycleWorld</h1>
-        <p id=description>блог про велосипеди</p>
-        <p id="image"><img src="img/bicycle_specialized.jpg"  alt="bicycle_specialized"></p>
-  </header>
-  <article>
-    <h2 id=articles>Найновіші статті</h2>
-    <h2 id="articleAboutUsefulness">Велосипед і здоров'я</h2>
-    <p>
-        <img src="img/bicycle's_wheel.jpg" alt="bicycle's_wheel" class=floatleft  width=100% >
-        Не знаєте, як включити їзду на велосипеді до здорового способу життя, наша стаття допоможе в цьому починанні.
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>BicycleWorld</title>
+      <link rel="stylesheet" href="index.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+      <link rel="manifest" href="/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+          <a href="#begin">Головна</a>
+          <a href="#articles">Статті</a>
+          <a href="#contacts">Контакти</a>
+      </nav>
+      <h1 id=begin>BicycleWorld</h1>
+      <p id=description>блог про велосипеди</p>
+      <p id="image"><img src="img/bicycle_specialized.jpg"  alt="bicycle_specialized"></p>
+    </header>
+    <article>
+      <h2 id=articles>Найновіші статті</h2>
+      <h2 id="articleAboutUsefulness">Велосипед і здоров'я</h2>
+      <p>
+          <img src="img/bicycle's_wheel.jpg" alt="bicycle's_wheel" id="bicycleWheel" class=floatleft>
+         Не знаєте, як включити їзду на велосипеді до здорового способу життя, наша стаття допоможе в цьому починанні.
 Якщо хочете доповнити здоровий спосіб життя, то їзда на велосипеді буде дуже до речі. Багатьом людям подобається їздити на роботу, в магазини, за дорученнями
 або подорожувати по сусіднім районам з сім'єю.
-    </p>
-    <div class="firstArticle">
-    </div>
-    <input type="button" class="addTextToUsefulnessArticle" name="seeMore" value="Показати більше"><br>
-    <form>
+      </p>
+      <div class="firstArticle">
+      </div>
+      <input type="button" class="addTextToUsefulnessArticle" name="seeMore" value="Показати більше"><br>
+      <form>
           <input type="text" id="commenterName" placeholder="Your name"><br><br>
           <input type="text" id="commentText" placeholder="Your comment"><br>
           <input type="button" class="addComment" value="Додати коментар"><br>
           <input type="button" class="showComments" value="Показати коментарі">
       </form>
-     <div id="comments">
-    </div>
-    <h2 id="articleAboutChoice"><strong>Вибір велосипеда</strong></h2>
-    <img src=img/bicycletypes.jpg alt="bicycletypes" class=floatleft width="200" height="200">
-    <p>
+      <div id="comments">
+      </div>
+      <h2 id="articleAboutChoice"><strong>Вибір велосипеда</strong></h2>
+      <img src=img/bicycletypes.jpg alt="bicycletypes" id="bicycletypes" class=floatleft>
+      <p>
         Вибір велосипеда — це дуже відповідальне завдання, особливо якщо це перший велосипед, який ви купуєте. У попередній статті ми вже говорили на тему вибору магазину, тепер же настав час поговорити про безпосередньо виборі самого байка.
 Отже, перш ніж приступити до вивчення асортименту веломагазинів, вам необхідно визначити свій передбачуваний стиль катання. Дайте відповідь собі на питання: де ви збираєтеся кататися і скільки.
-    </p>
-    <div class="secondArticle">
-    </div>
-    <input type="button" class="addTextToChoiceArticle" name="seeMore" value="Показати більше"><br>
-    <form>
+      </p>
+      <div class="secondArticle">
+      </div>
+      <input type="button" class="addTextToChoiceArticle" name="seeMore" value="Показати більше"><br>
+      <form>
           <input type="text" id="commenterNameOfChoice" placeholder="Your name"><br><br>
           <input type="text" id="commentTextOfChoice" placeholder="Your comment"><br>
           <input type="button" class="addCommentToChoice" value="Додати коментар"><br>
           <input type="button" class="showCommentsOfChoice" value="Показати коментарі">
       </form>
-     <div id="commentsOfChoice">
-    </div>
-</article>
-<section id="contactinfo">
-    <h1 id=contacts>Контакти</h1>
-      <div id="contactImages"
-        <a href="https://facebook.com">
-        <img src="img/facebook.png" alt="facebook_icon" width=200 height=200>
-        </a>
-    <a href="https://twitter.com">
-        <img src="img/twitter.png" alt="twitter_icon">
-        Twitter
-    </a>
-    <a href="https://invite.viber.com/" >
-        <img src="img/viber.jpg" alt="viber_icon">
-        Viber
-    </a>
-    <div id="contactText"
-    <p>E-mail Adress:bicycleworld@gmail.com</p>
-    <p>Phone number:0977777777</p>
-</section>
-    <form action="https://formspree.io/dmytrodanylov@ukr.net" method="POST">
-       Your name:
-       <input type="text" name="name"><br>
-       E-mail Adress:
-       <input type="text" name="e-mail"><br>
-       <textarea name="message" rows=10 cols=40>
-       </textarea>
-       <br>
-       <input type="submit" name="submit">
-    </form>
-    <br>
-    <footer class="pageending" style=background-color:black>
-       <form class="login-form">
-           <input type="text" name="subscriberName"><br>
-           <input type="text" name="subscriberEmail"><br>
-           <input type="submit" name="Subscribe">
-       </form>
-       <nav>
-         <a href="#begin">Головна |</a>
-         <a href="#articles"> Статті|</a>
-         <a href="#contacts"> Контакти</a>
-       </nav>
-       <br>
-       <div id="footerLinks">
-       <a href="https://facebook.com">Facebook |</a>
-       <a href="https://twitter.com"> Twitter |</a>
-       <a href="https://invite.viber.com/" > Viber</a>
-       <div>
-       <p style="color:white">BicycleWorld, 2019</p><br>
-       <p style="color:white">Усі права захищені.</p>
-    </footer>
-    <script src="js/index.js"></script>
-</body>
+      <div id="commentsOfChoice">
+      </div>
+  </article>
+  <section id="contactinfo">
+      <h2 id=contacts>Контакти</h2>
+        <div id="contactImages">
+          <a href="https://facebook.com">
+            <img src="img/facebook.png" alt="facebook_icon" width=200 height=200>
+          </a>
+          <a href="https://twitter.com">
+            <img src="img/twitter.png" alt="twitter_icon">
+            Twitter
+         </a>
+         <a href="https://invite.viber.com/" >
+            <img src="img/viber.jpg" alt="viber_icon">
+            Viber
+         </a>
+       </div>
+       <div id="contactText">
+         <p>E-mail Adress:bicycleworld@gmail.com</p>
+         <p>Phone number:0977777777</p>
+       </div>
+  </section>
+       <form action="https://formspree.io/dmytrodanylov@ukr.net" method="POST">
+          Your name:
+          <input type="text" name="name"><br>
+          E-mail Adress:
+          <input type="text" name="e-mail"><br>
+          <textarea name="message" rows=10 cols=40>
+          </textarea>
+          <br>
+          <input type="submit" name="submit">
+      </form>
+      <br>
+      <footer class="pageending" style=background-color:black>
+         <form action="https://formspree.io/dmytrodanylov@ukr.net" method="POST" class="login-form">
+             <p>Підпишітся, щоб першим дізнаватись про нові статті</p>
+             <input type="text" name="subscriberName" placeholder="Імя"><br>
+             <input type="text" name="subscriberEmail" placeholder="E-mail"><br>
+             <input type="submit" name="Subscribe">
+         </form>
+         <nav>
+           <a href="#begin">Головна |</a>
+           <a href="#articles"> Статті|</a>
+           <a href="#contacts"> Контакти</a>
+         </nav>
+         <br>
+         <div id="footerLinks">
+           <a href="https://facebook.com">Facebook |</a>
+           <a href="https://twitter.com"> Twitter |</a>
+           <a href="https://invite.viber.com/" > Viber</a>
+         </div>
+         <p style="color:white">BicycleWorld, 2019</p><br>
+         <p style="color:white">Усі права захищені.</p>
+      </footer>
+      <script src="js/index.js"></script>
+  </body>
 </html>
