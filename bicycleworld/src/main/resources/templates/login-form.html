@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="modal" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <div id="loginFormContainer">
+        <input type="button" id="close" value="&times;"><br>
+        <form th:action="@{/login}" method="POST">
+            <table>                
+                <tr>
+                    <td>
+                        <label>Ел. пошта:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="username" id="username"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Пароль:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="password" name="password"/>
+                    </td>
+                </tr>            
+            </table>
+            <input type="submit" value="Register"/>
+            <input type="reset" value="Reset"/>
+        </form>
+        <p>Don't have an account?Create one <a href="/register">here</a></p>
+    </div>
+</div>
+

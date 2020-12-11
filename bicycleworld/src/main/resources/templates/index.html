@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="uk">
+  <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <title>BicycleWorld</title>
+      <link rel="stylesheet" href="/../../css/index.css" th:href="@{/css/index.css}" type="text/css"/>      
+      <link rel="apple-touch-icon" sizes="180x180" href="/../../images/apple-icon-180x180.png"/>
+      <link rel="icon" type="image/png" sizes="192x192"  href="/../../images/android-icon-192x192.png"/>
+      <link rel="icon" type="image/png" sizes="96x96" href="/../../images/favicon-96x96.png"/>
+      <link rel="manifest" href="/manifest.json"/>
+      <meta name="msapplication-TileColor" content="#ffffff"/>
+      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+      <meta name="theme-color" content="#ffffff"/>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div th:replace="login-form"></div>
+    <header>
+      <nav class="menu">
+          <a href="#begin">Головна</a>
+          <a href="#articles">Статті</a>
+          <a href="#contacts">Контакти</a>
+      </nav>
+      <div class="dropdown" sec:authorize="!isAuthenticated()">
+          <button id="loginMenuOpener" class="fas fa-sign-in-alt" >Увійти</button>          
+          <div id="dropdownMenu">
+              <a th:href="@{/users/create}">Реєстрація</a>
+              <input type="button" id="loginButton" value="Вхід"/>
+          </div>
+      </div>
+      <h1 id=begin>BicycleWorld</h1>
+      <p id=description>блог про велосипеди</p>
+      <p id="image"><img th:src="@{/images/bicycle_specialized.jpg}"  alt="bicycle_specialized"></p>
+      <div id="greetingAndLogout" sec:authorize="isAuthenticated()">
+          Привіт,<span sec:authentication="principal.nickName"></span>!  
+          <form th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
+              <button type="submit" id ="logoutBtn" class="fas fa-sign-out-alt"/>
+          </form>
+      </div>
+    </header>
+    <article>
+      <h2 id=articles>Найновіші статті</h2>
+      <div id="singleArticle" class="unOpenedArticle" th:each="article:${articles}">
+          <div th:utext="${article.text}"></div>
+          <input type="button" class="addTextToArticle" name="seeMore" value="Показати більше"><br>
+          <form th:action="@{/comments/create/{articleId}(articleId=${article.id})}" th:object="${newComment}" method="POST">              
+              <div sec:authorize="!isAuthenticated()">Щоб додати коментар <a id="loginButton">увійдіть</a> або 
+                  <a th:href="@{/users/create}">зареєструйтусь</a></div>
+              <input type="text" id="commentText" th:field="*{comment}" placeholder="Your comment"
+                     sec:authorize="isAuthenticated()"><br>                      
+              <input type="submit" class="addComment" value="Додати коментар" sec:authorize="isAuthenticated()"><br>
+              <input type="button" class="showComments" value="Показати коментарі">
+          </form>
+          <div id="comments">
+              <h2><span th:text="${article.comments.size()}"></span> коментарів</h2>
+              <div id="singleComment" th:each="comment:${article.comments}">                  
+                  <h3 th:text="${comment.user.fullName}"></h3>
+                  <p th:text="${comment.comment}"></p>
+              </div>
+          </div>
+      </div>      
+  </article>
+  <div id="pagesNavigation">
+        <a th:href="@{/page/-1}" th:if="${hasPreviousArticles}">Попередня сторінка</a>
+        <a th:href="@{/page/1}" th:if="${hasNextArticles}">Наступна сторінка</a>
+  </div>
+  <section id="contactinfo">
+      <h2 id=contacts>Контакти</h2>
+        <div id="contactImages">
+          <a href="https://facebook.com">
+            <img th:src="@{/images/facebook.png}" alt="facebook_icon" width=200 height=200>
+          </a>
+          <a href="https://twitter.com">
+            <img th:src="@{/images/twitter.png}" alt="twitter_icon">
+          </a>
+          <a href="https://invite.viber.com/" >
+            <img th:src="@{/images/viber.jpg}" alt="viber_icon">
+          </a>
+       </div>
+       <div id="contactText">
+         <p>E-mail Adress:bicycleworld@gmail.com</p>
+         <p>Phone number:0977777777</p>
+       </div>
+  </section>
+       <form action="https://formspree.io/dmytrodanylov@ukr.net" method="POST" class="contactForm">
+          Your name:
+          <input type="text" name="name"><br>
+          E-mail Adress:
+          <input type="text" name="e-mail"><br>
+          Your message:<br>
+          <textarea name="message" rows=10 cols=40 placeholder="Your message">
+          </textarea>
+          <br>
+          <input type="submit" name="submit">
+      </form>
+      <br>
+      <footer class="pageending" style=background-color:black>
+         <form action="https://formspree.io/dmytrodanylov@ukr.net" method="POST" class="login-form">
+             <p>Підпишітся, щоб першим дізнаватись про нові статті</p>
+             <input type="text" name="subscriberName" placeholder="Імя"><br>
+             <input type="text" name="subscriberEmail" placeholder="E-mail"><br>
+             <input type="submit" name="Subscribe">
+         </form>
+         <nav>
+           <a href="#begin">Головна |</a>
+           <a href="#articles"> Статті|</a>
+           <a href="#contacts"> Контакти</a>
+         </nav>
+         <br>
+         <div id="footerLinks">
+           <a href="https://facebook.com">Facebook |</a>
+           <a href="https://twitter.com"> Twitter |</a>
+           <a href="https://invite.viber.com/" > Viber</a>
+         </div>
+         <p >BicycleWorld, 2019</p><br>
+         <p>Усі права захищені.</p>
+      </footer>
+      <script src="/../../javascript/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="uk">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/../../css/registration.css" th:href="@{/css/registration.css}" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/index">BicycleWorld</a></h1>
+        </header>        
+        <form th:action="@{/users/create}" th:object="${user}" method="POST">
+            <h2>Заповніть форму, щоб зареєструватися</h2>
+            <table>
+                <tr>
+                    <td>
+                        <label>Ім'я:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="fullName" th:field="*{fullName}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Ел. пошта:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="email" th:field="*{email}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Пароль:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="password" th:field="*{password}"/>
+                    </td>
+                </tr>                
+            </table>
+            <input type="submit" value="Реєстрація"/>
+            <input type="reset" value="Очистити"/>
+        </form>       
+    </body>
+</html>
