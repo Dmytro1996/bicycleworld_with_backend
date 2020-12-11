@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --maincolor:rgb(61,61,61);
+    --accent-color:white;
+      }
+body{
+    max-width:980px;
+    margin:0;
+    padding:0;
+    }
+header {
+    display:flex;
+    flex-direction:column;
+    background-position:center;
+    background-color:var(--maincolor);
+    justify-content:center;
+}
+header #begin {
+    font-family:'Anton',sans-serif;
+    font-size:3rem;
+    color:var(--accent-color);
+    background-color:var(--maincolor);
+    text-align:center;
+    max-height:55px;
+    margin:0;
+    padding:0;
+    order:1;
+}
+header #description {
+   font-family:'Anton',"sans serif";
+   text-align:center;
+   color:var(--accent-color);
+   background-color:var(--maincolor);
+   max-height:20px;
+   margin:0;
+   padding:0;
+   order:2;
+}
+header nav{
+    background-color:var(--maincolor);
+    height:25px;
+    display:flex;
+    list-style-type:none;
+    justify-content:space-around;
+    padding:10px;
+    order:3;
+}
+header nav a {
+    color:var(--accent-color);
+    text-decoration:none;
+    text-transform:uppercase;
+    }
+    header nav a:hover {
+      font-size:120%;
+          }
+header #image {
+    order:4;
+    margin-top:5px;
+    margin-bottom:0;
+}
+header #image img {
+    width:100%;
+    height:100%
+}
+
+#articles{
+    border-bottom: 1px solid black;
+}
+
+.dropdown{ 
+    position:relative;
+}
+
+#loginFormContainer{
+    display:none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;   
+    /*-webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;*/
+    margin: 5px auto;    
+    overflow: auto; 
+    background-color: white;
+    border-radius: 10px;
+    max-width: 80%
+}
+
+#modal{
+    display:none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  float:right;
+  margin-bottom: 5px;
+}
+
+#dropdownMenu{
+    position:absolute;
+    display:none;       
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+#dropdownMenu a{
+    text-decoration: none;     
+    color:black;    
+    display:block;
+}
+
+#loginMenuOpener,#logoutBtn{              
+        border:none;        
+        background-color:var(--maincolor); 
+        color:white;       
+        margin-right: 20px;
+        font-size: 20px;
+        outline: none;
+        border-radius: 5px;
+}
+
+#loginMenuOpener:hover,#logoutBtn:hover{
+    background-color:rgb(41,41,41);
+}
+
+#comments,#singleArticle form{
+    display:none;
+}
+
+.unOpenedArticle{    
+    z-index: 10;
+    box-shadow: 10px 10px 10px #888888;
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;    
+}
+
+.unOpenedArticle #intro{
+    display:grid;
+    grid-template-columns:1fr 5fr;
+}
+
+.unOpenedArticle #intro img{
+    grid-column:1;
+}
+
+.unOpenedArticle #intro p{
+    grid-column:2;
+}
+
+#singleComment{    
+    max-height:300px;    
+    z-index: 10;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    box-shadow: 10px 10px 10px #888888;
+    border: 1px solid lightgrey;    
+}
+
+#singleComment h3,#singleComment p{
+    margin:0px;
+    font-weight: 100;
+}
+
+#comments h2{
+    border-bottom: 1px solid lightgray;    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#greetingAndLogout{
+    display:flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    color:white;
+    font-family:'Anton',"sans-serif";
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+#loginButton{   
+    border:none;
+    color:black;
+    background-color: white;    
+    display:block;
+    width: 100%;
+    text-align:start;
+}
+
+#loginButton:hover,#dropdownMenu a:hover{
+    background-color: lightgrey;
+}
+
+#contactinfo {
+    display:flex;
+    flex-direction:column;
+    background-position:center;
+    align-items:space-around;
+}
+#networks a img {
+    width:200px;
+    height:200px;
+}
+#contactinfo #contactimages a img{
+       width:100%
+}
+#pagesNavigation{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@media (min-width:550px) {
+    header {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:20px 80px 5fr;
+    }
+   header #begin {
+        grid-column:1;
+        grid-row:2;
+        align-self:flex-start;
+       }
+    header #description {
+        grid-column:1;
+        grid-row:2;
+        align-self:flex-end;
+    }
+    header .menu {
+        grid-column:2;
+        grid-row:2;
+        align-self:center;
+    }
+    .dropdown,#greetingAndLogout{
+        grid-column:2;
+        grid-row:1;
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }   
+        
+    #loginButton{
+        max-height: 20px;
+    }
+        
+    #image {
+     grid-column:1/3;
+     grid-row:3;
+    }
+    #contactinfo {
+        display:grid;
+        grid-template-rows:50px 1fr;
+    }
+    #contactinfo #contactimages{
+        grid-row:1;
+        justify-content:space-around;
+    }
+    #contactinfo #contactText {
+        grid-row:2;
+        justify-content:flex-end;
+    }
+    }
+    h1,h2, .pageending {
+        text-align:center;
+        }
+    p {
+        font-family:"times new roman";
+    }
+    .pageending {
+        background-color:black;
+    }
+    img .floatleft{
+        float:left;
+    }
+    img .floatcenter{
+        float:center;
+    }
+    img .floatright{
+        float:right;
+    }
+@media (min-width:980px) {
+    body {
+    margin-left:auto;
+    margin-right:auto;
+    }
+}
+.addTextToArticle {
+    border:none;
+    background-color: white;
+    color:blue;
+    float:right;
+}
+#footerLinks a,.pageending nav a {
+    color:var(--accent-color);
+    text-decoration:none;
+    text-transform:uppercase;
+}
+.addComment,.showComments,.addCommentToChoice,.showCommentsOfChoice{
+    height:30px;
+    color:white;
+    background-color:dodgerblue;
+    border-radius:10px;
+}
+#articleAboutUsefulness,#articleAboutChoice,#contacts{
+    margin:0;
+}
+#contacts{    
+    border-top:1px solid var(--maincolor);
+}
+footer .login-form p{
+    color:white;
+    margin-bottom:0;
+}
+#comments,#commentsOfChoice{
+    margin-left:20px;
+    margin-right:20px;
+    overflow: auto;
+}
+#bicycleWheel,#bicycletypes,#benefitsOfBicycle{
+    width:100%;
+    height:100%;
+}
+img {
+    width:200px;
+    height:200px;
+}
+footer p {
+    color:white;
+}
+.contactForm {
+    float:center;
+}
+
+
+
