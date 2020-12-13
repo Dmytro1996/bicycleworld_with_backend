@@ -27,7 +27,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter  {
         http.authorizeRequests().antMatchers("/users/create","/page/**","/css/**",
                 "/javascript/**","/images/**").permitAll().anyRequest().authenticated().and().formLogin()
                 .loginPage("/").loginProcessingUrl("/login")
-                .defaultSuccessUrl("/index").failureUrl("/login-form?error=true")
+                .defaultSuccessUrl("/index").failureUrl("/error?userNotFound=true")
                 .permitAll().and().logout().logoutUrl("/logout")
                 .logoutSuccessUrl("/index").deleteCookies("JSESSIONID");       
     }
