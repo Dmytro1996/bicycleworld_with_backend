@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -23,8 +24,9 @@ import javax.persistence.Table;
 public class Article {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
-   @Column
+   private long id; 
+   @NotBlank
+   @Column   
    private String direction;
    private String text;   
    @OneToMany(mappedBy="article")
