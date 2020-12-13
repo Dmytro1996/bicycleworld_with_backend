@@ -9,6 +9,7 @@
  */
 INSERT INTO Articles(id,direction) VALUES(1,"C:\\Users\\dmytr\\OneDrive\\Documents\\NetBeansProjects\\bicycleworld\\bicycleworld\\src\\main\\resources\\articles\\Article about choosing a bicycle.txt");
 INSERT INTO Articles(id,direction) VALUES(2,"C:\\Users\\dmytr\\OneDrive\\Documents\\NetBeansProjects\\bicycleworld\\bicycleworld\\src\\main\\resources\\articles\\Article about usefullness of riding a bicycle.txt");
+
 INSERT INTO Users(id,full_name,email,password) VALUES(1,"John","john@mail.com","$2y$12$HyKB5hJ9pLLAGQ4ff8GJB.pLWGoF.7Kout7v2w4E0.JswWKCRtwc.");
 INSERT INTO Users(id,full_name,email,password) VALUES(2,"George","george@mail.com","$2y$12$VgTPP8rl2yYPNC0eVOo5SO4845lCChJ7u8319n2CxT4vMZqFbzj2W");
 INSERT INTO Users(id,full_name,email,password) VALUES(3,"Sam","sam@mail.com","$2y$12$u3ReBjbei.RMzq6pY6c1XuYWCRBmlsFH77g/CkN8CJWVZeVULQKtS ");
