@@ -52,3 +52,8 @@ header h1 a{
     text-decoration: none;
     color:white;
 }
+
+#errorHeader, #errorMessage, #errorCode, #userNotFound{    
+    font-family:'Anton',sans-serif;
+    color:white;
+}

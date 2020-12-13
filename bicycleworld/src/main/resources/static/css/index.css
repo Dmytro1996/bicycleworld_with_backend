@@ -18,7 +18,7 @@ header {
     background-color:var(--maincolor);
     justify-content:center;
 }
-header #begin {
+header #logo {
     font-family:'Anton',sans-serif;
     font-size:3rem;
     color:var(--accent-color);
@@ -53,9 +53,9 @@ header nav a {
     text-decoration:none;
     text-transform:uppercase;
     }
-    header nav a:hover {
-      font-size:120%;
-          }
+header nav a:hover {
+    font-size:120%;
+}
 header #image {
     order:4;
     margin-top:5px;
@@ -70,7 +70,7 @@ header #image img {
     border-bottom: 1px solid black;
 }
 
-.dropdown{ 
+.loginDropdown{ 
     position:relative;
 }
 
@@ -112,7 +112,7 @@ header #image img {
   margin-bottom: 5px;
 }
 
-#dropdownMenu{
+#loginMenu{
     position:absolute;
     display:none;       
     background-color: white;
@@ -121,7 +121,7 @@ header #image img {
     margin-top: 20px;
 }
 
-#dropdownMenu a{
+#loginMenu a{
     text-decoration: none;     
     color:black;    
     display:block;
@@ -214,7 +214,7 @@ header #image img {
     text-align:start;
 }
 
-#loginButton:hover,#dropdownMenu a:hover{
+#loginButton:hover,#loginMenu a:hover{
     background-color: lightgrey;
 }
 
@@ -233,16 +233,31 @@ header #image img {
 }
 #pagesNavigation{
     display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row;    
 }
+
+#pagesNavigation input{
+    border:none;
+    outline:none;
+    background-color: white;
+    color:blue;
+}
+
+#pagesNavigation #previousPage{
+    align-self: flex-start;
+}
+
+#pagesNavigation #nextPage{
+    align-self: flex-end;
+}
+
 @media (min-width:550px) {
     header {
     display:grid;
     grid-template-columns:1fr 1fr;
     grid-template-rows:20px 80px 5fr;
     }
-   header #begin {
+   header #logo {
         grid-column:1;
         grid-row:2;
         align-self:flex-start;
@@ -257,7 +272,7 @@ header #image img {
         grid-row:2;
         align-self:center;
     }
-    .dropdown,#greetingAndLogout{
+    .loginDropdown,#greetingAndLogout{
         grid-column:2;
         grid-row:1;
         display:flex;
@@ -277,13 +292,24 @@ header #image img {
         display:grid;
         grid-template-rows:50px 1fr;
     }
-    #contactinfo #contactimages{
+    
+    #contactinfo #contacts{
         grid-row:1;
+    }
+    #contactinfo #contactImages{
+        grid-row:2;
+        display:flex;
         justify-content:space-around;
     }
     #contactinfo #contactText {
-        grid-row:2;
-        justify-content:flex-end;
+        grid-row: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #contactText p{
+        margin:0;
     }
     }
     h1,h2, .pageending {
@@ -354,7 +380,12 @@ footer p {
     color:white;
 }
 .contactForm {
-    float:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
