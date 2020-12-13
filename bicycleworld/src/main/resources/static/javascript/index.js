@@ -28,18 +28,18 @@ function hideText(event){
     this.addEventListener('click',addText);
 }
 var loginMenuOpenerBtn=document.querySelector('#loginMenuOpener');
-if(loginMenuOpenerBtn!==null){loginMenuOpenerBtn.addEventListener('click',openDropDownMenu);}
-function openDropDownMenu(){
+if(loginMenuOpenerBtn!==null){loginMenuOpenerBtn.addEventListener('click',openLoginMenu);}
+function openLoginMenu(){
     //window.addEventListener('click',closeDropDownMenu);
-    document.querySelector('#dropdownMenu').style.display='block';
-    loginMenuOpenerBtn.removeEventListener('click',openDropDownMenu);
-    loginMenuOpenerBtn.addEventListener('click',closeDropDownMenu);    
+    document.querySelector('#loginMenu').style.display='block';
+    loginMenuOpenerBtn.removeEventListener('click',openLoginMenu);
+    loginMenuOpenerBtn.addEventListener('click',closeLoginMenu);    
 }
-function closeDropDownMenu(){
-    document.querySelector('#dropdownMenu').style.display='none';
-    loginMenuOpenerBtn.removeEventListener('click',closeDropDownMenu);
+function closeLoginMenu(){
+    document.querySelector('#loginMenu').style.display='none';
+    loginMenuOpenerBtn.removeEventListener('click',closeLoginMenu);
     //window.removeEventListener('click',closeDropDownMenu);
-    loginMenuOpenerBtn.addEventListener('click',openDropDownMenu);
+    loginMenuOpenerBtn.addEventListener('click',openLoginMenu);
 }
 let loginBtn=document.querySelector('#loginButton');
 if(loginBtn!==null){loginBtn.addEventListener('click',showLoginForm);}
@@ -78,8 +78,8 @@ window.onclick=function(event){
          closeLoginForm();         
     }
     if(event.target!==loginMenuOpenerBtn){
-        if(document.querySelector('#dropdownMenu').style.display==='block'){
-             closeDropDownMenu();
+        if(document.querySelector('#loginMenu').style.display==='block'){
+             closeLoginMenu();
          }
     }    
 };
