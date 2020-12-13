@@ -7,24 +7,17 @@ package com.mycompany.bicycleworld.controllers;
 
 import com.mycompany.bicycleworld.model.Article;
 import com.mycompany.bicycleworld.model.Comment;
-import com.mycompany.bicycleworld.model.User;
 import com.mycompany.bicycleworld.service.ArticleService;
 import com.mycompany.bicycleworld.service.HomeService;
 import com.mycompany.bicycleworld.service.UserService;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +51,7 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/page/{numOfPages}")
+    @PostMapping("/page/{numOfPages}")
     public String changePage(Model model,@PathVariable("numOfPages")int numOfPages){
         currentPage+=numOfPages;
         logger.info("currentPage:"+currentPage);
