@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="uk">
     <head>
-        <title>TODO supply a title</title>
+        <title>BicycleWorld - Registration</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="/../../css/registration.css" th:href="@{/css/registration.css}" type="text/css"/>
@@ -24,14 +24,18 @@ and open the template in the editor.
                     </td>
                     <td>
                         <input type="text" id="fullName" th:field="*{fullName}"/>
-                    </td>
-                </tr>
+                        <div class="form-text text-muted" th:if="${#fields.hasErrors('fullName')}"
+                                th:errors="*{fullName}"></div>                        
+                    </td>                    
+                </tr>                
                 <tr>
                     <td>
                         <label>Ел. пошта:</label>
                     </td>
                     <td>
                         <input type="text" id="email" th:field="*{email}"/>
+                        <div class="form-text text-muted" th:if="${#fields.hasErrors('email')}"
+                                th:errors="*{email}"></div>
                     </td>
                 </tr>
                 <tr>
@@ -39,7 +43,9 @@ and open the template in the editor.
                         <label>Пароль:</label>
                     </td>
                     <td>
-                        <input type="text" id="password" th:field="*{password}"/>
+                        <input type="password" id="password" th:field="*{password}"/>
+                        <div class="form-text text-muted" th:if="${#fields.hasErrors('password')}"
+                                th:errors="*{password}"></div>
                     </td>
                 </tr>                
             </table>

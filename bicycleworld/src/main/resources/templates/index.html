@@ -24,14 +24,14 @@
           <a href="#articles">Статті</a>
           <a href="#contacts">Контакти</a>
       </nav>
-      <div class="dropdown" sec:authorize="!isAuthenticated()">
+      <div class="loginDropdown" sec:authorize="!isAuthenticated()">
           <button id="loginMenuOpener" class="fas fa-sign-in-alt" >Увійти</button>          
-          <div id="dropdownMenu">
+          <div id="loginMenu">
               <a th:href="@{/users/create}">Реєстрація</a>
               <input type="button" id="loginButton" value="Вхід"/>
           </div>
       </div>
-      <h1 id=begin>BicycleWorld</h1>
+      <h1 id=logo>BicycleWorld</h1>
       <p id=description>блог про велосипеди</p>
       <p id="image"><img th:src="@{/images/bicycle_specialized.jpg}"  alt="bicycle_specialized"></p>
       <div id="greetingAndLogout" sec:authorize="isAuthenticated()">
@@ -47,12 +47,13 @@
           <div th:utext="${article.text}"></div>
           <input type="button" class="addTextToArticle" name="seeMore" value="Показати більше"><br>
           <form th:action="@{/comments/create/{articleId}(articleId=${article.id})}" th:object="${newComment}" method="POST">              
-              <div sec:authorize="!isAuthenticated()">Щоб додати коментар <a id="loginButton">увійдіть</a> або 
+              <div sec:authorize="!isAuthenticated()">Щоб додати коментар увійдіть або 
                   <a th:href="@{/users/create}">зареєструйтусь</a></div>
               <input type="text" id="commentText" th:field="*{comment}" placeholder="Your comment"
-                     sec:authorize="isAuthenticated()"><br>                      
-              <input type="submit" class="addComment" value="Додати коментар" sec:authorize="isAuthenticated()"><br>
-              <input type="button" class="showComments" value="Показати коментарі">
+                     sec:authorize="isAuthenticated()" pattern="[А-Яа-яA-Za-z0-9]+.*" 
+                     title="Поле не може бути пустим" required="true"/><br>                      
+              <input type="submit" class="addComment" value="Додати коментар" sec:authorize="isAuthenticated()"/><br>
+              <input type="button" class="showComments" value="Показати коментарі"/>
           </form>
           <div id="comments">
               <h2><span th:text="${article.comments.size()}"></span> коментарів</h2>
@@ -63,9 +64,13 @@
           </div>
       </div>      
   </article>
-  <div id="pagesNavigation">
-        <a th:href="@{/page/-1}" th:if="${hasPreviousArticles}">Попередня сторінка</a>
-        <a th:href="@{/page/1}" th:if="${hasNextArticles}">Наступна сторінка</a>
+  <div id="pagesNavigation">        
+        <form th:action="@{/page/-1}" id="previousPage" th:if="${hasPreviousArticles}" method="POST">
+            <input type="submit" value="Попередня сторінка"/>
+        </form>
+        <form th:action="@{/page/1}" id="nextPage" th:if="${hasNextArticles}" method="POST">
+            <input type="submit" value="Наступна сторінка"/>
+        </form>
   </div>
   <section id="contactinfo">
       <h2 id=contacts>Контакти</h2>
@@ -86,11 +91,11 @@
        </div>
   </section>
        <form action="https://formspree.io/dmytrodanylov@ukr.net" method="POST" class="contactForm">
-          Your name:
-          <input type="text" name="name"><br>
-          E-mail Adress:
-          <input type="text" name="e-mail"><br>
-          Your message:<br>
+           <label>Your name:
+               <input type="text" name="name"></label><br>
+          <label>E-mail Adress:
+              <input type="text" name="e-mail"></label><br>
+          <label>Your message:</label><br>
           <textarea name="message" rows=10 cols=40 placeholder="Your message">
           </textarea>
           <br>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="uk">
+    <head>
+        <title>Error page</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/../../css/registration.css" th:href="@{/css/registration.css}" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/index">BicycleWorld</a></h1>
+        </header>
+        <h1 id="errorHeader">Сталась помилка</h1>
+        <h2 th:if="${param.userNotFound}" id="userNotFound">Користувача  не знайдено</h2>
+        <h1 style="margin: 0 auto; width: max-content" th:text="${code}" id="errorCode" />
+        <h2 style="margin: 0 auto; width: max-content" th:text="${message}" id="errorMessage" />        
+    </body>
+</html>
