@@ -6,11 +6,14 @@
 package com.mycompany.bicycleworld.service.impl;
 
 import com.mycompany.bicycleworld.details.UserDetailsImpl;
+import com.mycompany.bicycleworld.exception.NullEntityReferenceException;
 import com.mycompany.bicycleworld.model.User;
 import com.mycompany.bicycleworld.repository.UserRepository;
 import com.mycompany.bicycleworld.service.UserService;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
+import javax.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +34,18 @@ public class UserServiceImpl implements UserService,UserDetailsService {
     Logger logger=LoggerFactory.getLogger(UserServiceImpl.class);
     
     public User readById(long id){
-        return userRepo.findById(id).get();
+        try{
+            return userRepo.findById(id).get();
+        } catch(NoSuchElementException e){
+            throw new EntityNotFoundException("User wit id "+id+" not found");
+        }
     }
     
     public User create(User user){
-        return userRepo.save(user);
+        if(user!=null){
+            return userRepo.save(user);
+        }
+        throw new NullEntityReferenceException("User cannot be null");        
     }
     
     public List<User> getAll(){

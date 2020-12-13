@@ -5,6 +5,7 @@
  */
 package com.mycompany.bicycleworld.service.impl;
 
+import com.mycompany.bicycleworld.exception.NullEntityReferenceException;
 import com.mycompany.bicycleworld.service.HomeService;
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,21 +26,7 @@ import org.springframework.stereotype.Service;
 public class HomeServiceImpl implements HomeService {
     Logger logger=LoggerFactory.getLogger(HomeService.class);
     public String getArticle(File file){
-        String article="";        
-        /*try(BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(
-                "C:\\Users\\dmytr\\OneDrive\\Documents\\NetBeansProjects\\bicycleworld"
-                        + "\\bicycleworld\\src\\main\\resources\\articles\\"+articleName+".txt"),StandardCharsets.UTF_8))){
-            String line=null;
-            while((line=br.readLine())!=null){
-                article+=line;
-            }
-            if(article.length()==0){
-                logger.info("article is empty");
-            }
-        } catch(IOException e){
-            logger.info(e.getMessage());
-        }*/
-        //logger.info(file.getAbsolutePath());
+        String article="";     
         try(BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(file),StandardCharsets.UTF_8))){
             String line=null;
             while((line=br.readLine())!=null){
@@ -49,9 +36,8 @@ public class HomeServiceImpl implements HomeService {
                 logger.info("article is empty");
             }   
         } catch(IOException e){
-            logger.info(e.getMessage());
+            throw new NullEntityReferenceException("Error while loading an article");
         }
-        return article;
-        //return article;
+        return article;        
     }
 }

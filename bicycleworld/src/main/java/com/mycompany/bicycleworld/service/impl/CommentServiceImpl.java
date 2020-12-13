@@ -5,6 +5,7 @@
  */
 package com.mycompany.bicycleworld.service.impl;
 
+import com.mycompany.bicycleworld.exception.NullEntityReferenceException;
 import com.mycompany.bicycleworld.model.Comment;
 import com.mycompany.bicycleworld.repository.CommentRepository;
 import com.mycompany.bicycleworld.service.CommentService;
@@ -22,6 +23,9 @@ public class CommentServiceImpl implements CommentService {
     private CommentRepository commentRepo;
     
     public Comment create(Comment comment){
-        return commentRepo.save(comment);
+        if(comment!=null){
+            return commentRepo.save(comment);
+        }
+        throw new NullEntityReferenceException("Comment cannot be null");
     }    
 }
