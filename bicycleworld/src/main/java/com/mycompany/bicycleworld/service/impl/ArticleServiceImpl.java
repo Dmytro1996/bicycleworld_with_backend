@@ -20,11 +20,15 @@ import org.springframework.stereotype.Service;
  * @author dmytr
  */
 @Service
-public class ArticleServiceImpl implements ArticleService {
-   
-    @Autowired
-    private ArticleRepository articleRepo;
+public class ArticleServiceImpl implements ArticleService {   
     
+    private ArticleRepository articleRepo;   
+    
+    @Autowired
+    public ArticleServiceImpl(ArticleRepository articleRepo) {
+        this.articleRepo = articleRepo;
+    }
+        
     public Article readById(long id){
         try{
             return articleRepo.findById(id).get();

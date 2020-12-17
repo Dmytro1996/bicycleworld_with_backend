@@ -17,10 +17,14 @@ import org.springframework.stereotype.Service;
  * @author dmytr
  */
 @Service
-public class CommentServiceImpl implements CommentService {
+public class CommentServiceImpl implements CommentService {    
+    
+    private CommentRepository commentRepo;
     
     @Autowired
-    private CommentRepository commentRepo;
+    public CommentServiceImpl(CommentRepository commentRepo) {
+        this.commentRepo = commentRepo;
+    }
     
     public Comment create(Comment comment){
         if(comment!=null){

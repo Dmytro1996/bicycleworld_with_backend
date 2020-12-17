@@ -27,12 +27,16 @@ import org.springframework.stereotype.Service;
  * @author dmytr
  */
 @Service
-public class UserServiceImpl implements UserService,UserDetailsService {
+public class UserServiceImpl implements UserService,UserDetailsService {    
+    
+    private UserRepository userRepo;
+    Logger logger=LoggerFactory.getLogger(UserServiceImpl.class);  
     
     @Autowired
-    private UserRepository userRepo;
-    Logger logger=LoggerFactory.getLogger(UserServiceImpl.class);
-    
+    public UserServiceImpl(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
+        
     public User readById(long id){
         try{
             return userRepo.findById(id).get();
