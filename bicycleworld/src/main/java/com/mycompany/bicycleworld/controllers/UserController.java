@@ -27,14 +27,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+    
     Logger logger=LoggerFactory.getLogger(UserController.class);
-    
-    @Autowired
-    private UserService userService;
-    
-    @Autowired
+    private UserService userService;    
     private BCryptPasswordEncoder passEncoder;
     
+    @Autowired
+    public UserController(UserService userService, BCryptPasswordEncoder passEncoder) {
+        this.userService = userService;
+        this.passEncoder = passEncoder;
+    }   
+        
     @GetMapping("/create")
     public String create(Model model){
         logger.info("Inside GET create");

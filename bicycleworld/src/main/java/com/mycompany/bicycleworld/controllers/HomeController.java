@@ -29,13 +29,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     Logger logger=LoggerFactory.getLogger(HomeController.class);
-    @Autowired
-    private HomeService homeService;
-    @Autowired
-    private UserService userService;
-    @Autowired
+    
+    private HomeService homeService;    
+    private UserService userService;    
     private ArticleService articleService;
     private static int currentPage=1;
+
+    @Autowired    
+    public HomeController(HomeService homeService, UserService userService, ArticleService articleService) {
+        this.homeService = homeService;
+        this.userService = userService;
+        this.articleService = articleService;
+    }
+    
+    
     
     @RequestMapping({"/","/index"})
     public String home(Model model){

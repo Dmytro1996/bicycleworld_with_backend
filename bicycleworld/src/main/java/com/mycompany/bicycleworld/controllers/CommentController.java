@@ -28,12 +28,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/comments")
 public class CommentController {
     
-   @Autowired
-   private CommentService commentService;
-   @Autowired
-   private UserService userService;
-   @Autowired
+   private CommentService commentService;   
+   private UserService userService;   
    private ArticleService articleService;
+    
+    @Autowired
+    public CommentController(CommentService commentService, UserService userService, ArticleService articleService) {
+        this.commentService = commentService;
+        this.userService = userService;
+        this.articleService = articleService;
+    }
+   
+   
    
    @PostMapping("/create/{articleId}")
    public String create(Model model,@PathVariable("articleId")long articleId,
