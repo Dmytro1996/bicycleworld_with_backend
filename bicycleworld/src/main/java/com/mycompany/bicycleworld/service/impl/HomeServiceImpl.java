@@ -36,7 +36,7 @@ public class HomeServiceImpl implements HomeService {
                 logger.info("article is empty");
             }   
         } catch(IOException e){
-            throw new NullEntityReferenceException(e.getMessage()+"Error while loading an article");
+            throw new NullEntityReferenceException("Error while loading an article");
         }
         return article;        
     }
