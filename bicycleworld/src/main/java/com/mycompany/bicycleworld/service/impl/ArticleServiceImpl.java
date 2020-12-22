@@ -33,7 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
         try{
             return articleRepo.findById(id).get();
         } catch(NoSuchElementException e){
-            throw new EntityNotFoundException("Article wit id "+id+"not found");
+            throw new EntityNotFoundException("Article with id="+id+" not found");
         }
     }
     
