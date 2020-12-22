@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService,UserDetailsService {
         try{
             return userRepo.findById(id).get();
         } catch(NoSuchElementException e){
-            throw new EntityNotFoundException("User wit id "+id+" not found");
+            throw new EntityNotFoundException("User with id="+id+" not found");
         }
     }
     
