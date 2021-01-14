@@ -195,6 +195,11 @@ header #image img {
     font-family:'Anton',"sans-serif";
 }
 
+#loginToComment{    
+    color:blue;
+    text-decoration: underline;
+}
+
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)}
   to {-webkit-transform: scale(1)}
