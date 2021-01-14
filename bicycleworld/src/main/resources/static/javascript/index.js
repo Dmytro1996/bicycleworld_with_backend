@@ -43,6 +43,7 @@ function closeLoginMenu(){
 }
 let loginBtn=document.querySelector('#loginButton');
 if(loginBtn!==null){loginBtn.addEventListener('click',showLoginForm);}
+document.querySelector("#loginToComment").onclick=function(){showLoginForm();};
 function showLoginForm(){
     document.querySelector("#modal").style.display='block';
     document.querySelector("#loginFormContainer").style.display='block';    
