@@ -47,7 +47,7 @@
           <div th:utext="${article.text}"></div>
           <input type="button" class="addTextToArticle" name="seeMore" value="Показати більше"><br>
           <form th:action="@{/comments/create/{articleId}(articleId=${article.id})}" th:object="${newComment}" method="POST">              
-              <div sec:authorize="!isAuthenticated()">Щоб додати коментар увійдіть або 
+              <div sec:authorize="!isAuthenticated()">Щоб додати коментар <span id="loginToComment">увійдіть</span> або 
                   <a th:href="@{/users/create}">зареєструйтусь</a></div>
               <input type="text" id="commentText" th:field="*{comment}" placeholder="Your comment"
                      sec:authorize="isAuthenticated()" pattern="[А-Яа-яA-Za-z0-9]+.*" 
