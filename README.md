@@ -1,2 +1,2 @@
-# bicycleworld_with_backend
+# BicycleWorld
 Blog about bicycles
