@@ -47,6 +47,11 @@ and open the template in the editor.
                         <div class="form-text text-muted" th:if="${#fields.hasErrors('password')}"
                                 th:errors="*{password}"></div>
                     </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="authProvider" value="CUSTOM" th:field="*{authProvider}" hidden="true"/>
+                    </td>
                 </tr>                
             </table>
             <input type="submit" value="Реєстрація"/>
