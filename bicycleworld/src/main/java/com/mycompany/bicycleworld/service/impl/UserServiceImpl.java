@@ -7,6 +7,7 @@ package com.mycompany.bicycleworld.service.impl;
 
 import com.mycompany.bicycleworld.details.UserDetailsImpl;
 import com.mycompany.bicycleworld.exception.NullEntityReferenceException;
+import com.mycompany.bicycleworld.model.AuthProvider;
 import com.mycompany.bicycleworld.model.User;
 import com.mycompany.bicycleworld.repository.UserRepository;
 import com.mycompany.bicycleworld.service.UserService;
@@ -58,7 +59,8 @@ public class UserServiceImpl implements UserService,UserDetailsService {
     
     @Override
     public UserDetails loadUserByUsername(String userName){        
-        Optional<User> user=userRepo.findAll().stream().filter(u->u.getEmail().equals(userName)).findAny();
+        Optional<User> user=userRepo.findAll().stream().filter(u->u.getEmail().equals(userName) 
+                && u.getAuthProvider().equals(AuthProvider.CUSTOM)).findAny();
         if(user.isPresent()){
             logger.info("User found");
             return new UserDetailsImpl(user.get());
