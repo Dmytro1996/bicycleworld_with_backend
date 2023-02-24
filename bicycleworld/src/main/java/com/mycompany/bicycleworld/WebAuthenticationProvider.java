@@ -35,11 +35,12 @@ public class WebAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException{        
         String username=authentication.getName();        
         String password=authentication.getCredentials().toString();
-        logger.info(username+" "+password);
+        logger.info(username);
         UserDetails userDetails=userDetailsService.loadUserByUsername(username);
-        //logger.info(userDetails==null);
-        Role role=(Role)userDetails.getAuthorities().toArray()[0];        
-        if(userDetails!=null && passEncoder.matches(password,userDetails.getPassword())){            
+        logger.info("User is null: "+(userDetails==null));
+        logger.info("Password matches: "+passEncoder.matches(password,userDetails.getPassword()));
+        if(userDetails!=null && passEncoder.matches(password,userDetails.getPassword())){  
+            logger.info("UsernamePasswordAuthenticationToken will be returned.");
             return new UsernamePasswordAuthenticationToken(userDetails,
                     userDetails.getPassword(),userDetails.getAuthorities());
         }
