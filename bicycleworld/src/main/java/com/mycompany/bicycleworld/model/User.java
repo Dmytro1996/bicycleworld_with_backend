@@ -8,6 +8,8 @@ package com.mycompany.bicycleworld.model;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +31,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
-    @Pattern(regexp = "[A-Z][a-z]+",
+    @Pattern(regexp = "([A-ZА-Я][a-zа-я ]+)( [A-ZА-Я][a-zа-я ]+)?",
             message = "Must start with a capital letter followed by one or more lowercase letters")
     @Column(name="full_name")
     private String fullName; 
@@ -43,6 +45,8 @@ public class User {
     @NotBlank
     @Column
     private String password;
+    @Enumerated(EnumType.STRING)
+    private AuthProvider authProvider;
     @OneToMany(mappedBy="user")
     private List<Comment> comments;
 
@@ -63,6 +67,10 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public AuthProvider getAuthProvider() {
+        return authProvider;
     }
 
     public List<Comment> getComments() {
@@ -87,6 +95,10 @@ public class User {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public void setAuthProvider(AuthProvider authProvider) {
+        this.authProvider = authProvider;
     }
         
 }
