@@ -11,7 +11,9 @@ import com.mycompany.bicycleworld.service.ArticleService;
 import com.mycompany.bicycleworld.service.CommentService;
 import com.mycompany.bicycleworld.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,13 +46,21 @@ public class CommentController {
    
    @PostMapping("/create/{articleId}")
    public String create(Model model,@PathVariable("articleId")long articleId,
-           @Validated @ModelAttribute("newComment")Comment comment, BindingResult result){
+           @Validated @ModelAttribute("newComment")Comment comment, 
+           @AuthenticationPrincipal OAuth2User principal, BindingResult result){
        if(result.hasErrors()){         
            return "redirect:/index";
        }
+       long id;
        comment.setArticle(articleService.readById(articleId));
-       UserDetailsImpl userDetails=(UserDetailsImpl)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-       comment.setUser(userService.readById(userDetails.getId()));
+       if(principal!=null){
+           id=userService.getAll().stream().filter(u->
+                   u.getEmail().equals(principal.getAttributes().get("email")
+                           .toString())).map(u->u.getId()).findFirst().orElse(-1L);
+       } else{
+           id=((UserDetailsImpl)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+       }
+       comment.setUser(userService.readById(id));
        commentService.create(comment);
        return "redirect:/index";
    }
