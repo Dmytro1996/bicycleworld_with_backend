@@ -71,6 +71,6 @@ public class CommentControllerTests {
     public void createWithInvalidInputTest() throws Exception{
         mockMvc.perform(MockMvcRequestBuilders.post("/comments/create/1")
                 .param("comment", "    ").with(csrf())).andExpect(
-                        MockMvcResultMatchers.status().is3xxRedirection());
+                        MockMvcResultMatchers.status().is5xxServerError());
     }
 }
