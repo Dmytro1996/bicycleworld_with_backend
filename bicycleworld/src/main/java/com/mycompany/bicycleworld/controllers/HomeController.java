@@ -53,29 +53,26 @@ public class HomeController {
         logger.info("Inside controller");        
         System.out.println("Principal is null: "+(principal==null));
         System.out.println(principal==null?null:principal.getAttributes().get("given_name"));
-        List<Article> articles=articleService.getAll().stream().limit(10).collect(Collectors.toList());              
+        return formCommonModel(model, principal);
+    }
+
+    @PostMapping("/page/{numOfPages}")
+    public String changePage(Model model,@PathVariable("numOfPages")int numOfPages,
+            @AuthenticationPrincipal OAuth2User principal){
+        currentPage+=numOfPages;
+        logger.info("currentPage:"+currentPage);
+        return formCommonModel(model, principal);
+    }
+
+    private String formCommonModel(Model model, OAuth2User principal){
+        List<Article> articles=articleService.getAll().stream().skip((currentPage-1)*10)
+                .limit(10).collect(Collectors.toList());              
         for(Article a:articles){            
             a.setText(homeService.getArticle(new File(a.getDirection())));
         }
         model.addAttribute("principalType",principal==null?"custom":"google");
         if(principal!=null){
             model.addAttribute("principalGivenName",principal.getAttribute("given_name"));
-        }
-        model.addAttribute("hasPreviousArticles",currentPage>1);
-        model.addAttribute("hasNextArticles",currentPage*10<articleService.getAll().size());
-        model.addAttribute("articles", articles);      
-        model.addAttribute("newComment",new Comment());
-        return "index";
-    }
-
-    @PostMapping("/page/{numOfPages}")
-    public String changePage(Model model,@PathVariable("numOfPages")int numOfPages){
-        currentPage+=numOfPages;
-        logger.info("currentPage:"+currentPage);
-        List<Article> articles=articleService.getAll().stream().skip((currentPage-1)*10)
-                .limit(10).collect(Collectors.toList());              
-        for(Article a:articles){            
-            a.setText(homeService.getArticle(new File(a.getDirection())));
         }        
         model.addAttribute("hasPreviousArticles",currentPage>1);
         model.addAttribute("hasNextArticles",currentPage*10<articleService.getAll().size());
