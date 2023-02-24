@@ -35,7 +35,8 @@
       <p id=description>блог про велосипеди</p>
       <p id="image"><img th:src="@{/images/bicycle_specialized.jpg}"  alt="bicycle_specialized"></p>
       <div id="greetingAndLogout" sec:authorize="isAuthenticated()">
-          Привіт,<span sec:authentication="principal.nickName"></span>!  
+          Привіт,<span th:if="${principalType.equals('custom')}"><span sec:authentication="principal.nickName"/></span>
+          <span th:if="${principalType.equals('google')}"><span th:text="${principalGivenName}"/></span>!  
           <form th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
               <button type="submit" id ="logoutBtn" class="fas fa-sign-out-alt"/>
           </form>
